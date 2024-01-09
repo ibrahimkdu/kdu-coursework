@@ -19,7 +19,10 @@ public class StudentUtil {
                 c++;
             }
             if(c!=0)
-            sum =sum/c; // Calculate average GPA
+            {
+                sum =sum/c;
+            }
+     // Calculate average GPA
             ans[i] =sum;
         }
         return ans;
