@@ -1,92 +1,93 @@
 import java.util.*;
 public class SentimentAnalyser {
-    public static int[] detectProsAndCons(String review, String[][] featureSet, String[] posOpinionWords, String[] negOpinionWords) {
-        int[] featureOpinions = new int[featureSet.length]; // output
+    public static int[] detectProsAndCons(String userReview, String[][] features, String[] positiveWords, String[] negativeWords) {
+        int[] featureSentiments = new int[features.length];
 
-        for (int i = 0; i < featureSet.length; i++) {
-            String[] featureSynonyms = featureSet[i];
+        for (int i = 0; i < features.length; i++) {
+            String[] featureSynonyms = features[i];
             for (String feature : featureSynonyms) {
-                int opinion = checkForWasPhrasePattern(review, feature, posOpinionWords, negOpinionWords);
-                if (opinion == 0) {
-                    opinion = checkForOpinionFirstPattern(review, feature, posOpinionWords, negOpinionWords);
-                }
-
-                featureOpinions[i] = opinion;
-                if (opinion != 0) {
-                    break; // If an opinion is found, move to the next feature
+                int sentiment = getOpinonOnFeature(userReview, feature, positiveWords, negativeWords);
+                if (sentiment != 0) {
+                    featureSentiments[i] = sentiment;
+                    break; // Move to the next feature set
                 }
             }
         }
 
-        return featureOpinions;
+        return featureSentiments;
     }
-    private static int getOpinionOnFeature(String review, String feature, String[] posOpinionWords, String[] negOpinionWords) {
-        for (String posWord : posOpinionWords) {
-            if (review.contains(posWord)) {
-                return 1; // Positive opinion
-            }
+
+    private static int getOpinonOnFeature(String review, String feature, String[] posOpinionWords, String[] negOpinionWords) {
+        int sentiment = checkForWasPhrasePattern(review, feature, posOpinionWords, negOpinionWords);
+
+        if (sentiment == 0) {
+            sentiment = checkForOpinionFirstPattern(review, feature, posOpinionWords, negOpinionWords);
         }
 
-        for (String negWord : negOpinionWords) {
-            if (review.contains(negWord)) {
-                return -1; // Negative opinion
-            }
-        }
-
-        return 0; // No opinion found
-
-// your code
+        return sentiment;
     }
+
     private static int checkForWasPhrasePattern(String review, String feature, String[] posOpinionWords, String[] negOpinionWords) {
-        int opinion = 0;
-        String[] sentences = review.split("[.!?]");
-        //String[] sentences = review.split("\\.");
+        int sentiment = 0;
+        String pattern = feature + " was ";
 
-        for (String sentence : sentences) {
-            if (sentence.contains(feature) && sentence.contains("was")) {
-                opinion = getOpinionOnFeature(sentence, feature, posOpinionWords, negOpinionWords);
-                if (opinion != 0) {
+        if (review.toLowerCase().contains(pattern)) {
+            for (String posOpinion : posOpinionWords) {
+                if (review.toLowerCase().contains(pattern + posOpinion)) {
+                    sentiment = 1;
                     break;
+                }
+            }
+
+            if (sentiment == 0) {
+                for (String negOpinion : negOpinionWords) {
+                    if (review.toLowerCase().contains(pattern + negOpinion)) {
+                        sentiment = -1;
+                        break;
+                    }
                 }
             }
         }
 
-        return opinion;
+        return sentiment;
     }
+
     private static int checkForOpinionFirstPattern(String review, String feature, String[] posOpinionWords, String[] negOpinionWords) {
-        int opinion = 0;
-        String[] sentences = review.split("[,.!?]");
-        //String[] sentences = review.split("\\.");
+        int sentiment = 0;
 
-        for (String sentence : sentences) {
-            if (sentence.contains(feature)) {
-                opinion = getOpinionOnFeature(sentence, feature, posOpinionWords, negOpinionWords);
-                if (opinion != 0) {
-                    break;
+        for (String sentence : review.split("\\.")) {
+            for (String posOpinion : posOpinionWords) {
+                if (sentence.toLowerCase().contains(posOpinion + " " + feature)) {
+                    sentiment = 1;
+                    return sentiment;
+                }
+            }
+
+            for (String negOpinion : negOpinionWords) {
+                if (sentence.toLowerCase().contains(negOpinion + " " + feature)) {
+                    sentiment = -1;
+                    return sentiment;
                 }
             }
         }
 
-        return opinion;
+        return sentiment;
     }
+
     public static void main(String[] args) {
-        String review = "Haven't been here in years! good service and the food was delicious!Definetly will be a frequent flyer! Francisco was very attentive!";
-        review=review.toLowerCase();
+        String userReview = "Haven't been here in years! Fantastic service and the food was delicious! Definitely will be a frequent flyer! Francisco was very attentive";
         String[][] featureSet = {
-                { "ambiance", "ambience", "atmosphere", "decor" },
-                { "dessert", "ice cream", "desert" },
-                { "food" },
-                { "soup" },
-                { "service", "management", "waiter", "waitress",
-                        "bartender", "staff", "server" } };
-        String[] posOpinionWords = { "good", "fantastic", "friendly",
-                "great", "excellent", "amazing", "awesome",
-                "delicious" };
-        String[] negOpinionWords = { "slow", "bad", "horrible",
-                "awful", "unprofessional", "poor" };
-        int[] featureOpinions = detectProsAndCons(review, featureSet, posOpinionWords, negOpinionWords);
-        LogBack.slf4jLogger.debug("Opinions on Features: " + Arrays.toString(featureOpinions));
-//        System.out.println("Opinions on Features: " + Arrays.toString(featureOpinions));
+                {"ambiance", "ambience", "atmosphere", "decor"},
+                {"dessert", "ice cream", "desert"},
+                {"food"},
+                {"soup"},
+                {"service", "management", "waiter", "waitress", "bartender", "staff", "server"}
+        };
+        String[] positiveWords = {"good", "fantastic", "friendly", "great", "excellent", "amazing", "awesome", "delicious"};
+        String[] negativeWords = {"slow", "bad", "horrible", "awful", "unprofessional", "poor"};
+
+        int[] featureSentiments = detectProsAndCons(userReview, featureSet, positiveWords, negativeWords);
+        LogBack.slf4jLogger.debug("Opinions  on Features: " + Arrays.toString(featureSentiments));
     }
 }
 
