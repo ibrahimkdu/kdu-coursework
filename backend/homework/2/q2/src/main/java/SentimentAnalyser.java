@@ -29,7 +29,7 @@ public class SentimentAnalyser {
 
     private static int checkForWasPhrasePattern(String review, String feature, String[] posOpinionWords, String[] negOpinionWords) {
         int sentiment = 0;
-        String pattern = feature + " was ";
+        String pattern = feature + " was ";//making the pattern with was
 
         if (review.toLowerCase().contains(pattern)) {
             for (String posOpinion : posOpinionWords) {
@@ -58,14 +58,14 @@ public class SentimentAnalyser {
         for (String sentence : review.split("\\.")) {
             for (String posOpinion : posOpinionWords) {
                 if (sentence.toLowerCase().contains(posOpinion + " " + feature)) {
-                    sentiment = 1;
+                    sentiment = 1;//positive sentiment
                     return sentiment;
                 }
             }
 
             for (String negOpinion : negOpinionWords) {
                 if (sentence.toLowerCase().contains(negOpinion + " " + feature)) {
-                    sentiment = -1;
+                    sentiment = -1;//negative sentiment
                     return sentiment;
                 }
             }
