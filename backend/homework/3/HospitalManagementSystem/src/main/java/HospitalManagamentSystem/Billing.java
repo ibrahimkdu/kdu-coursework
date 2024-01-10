@@ -1,10 +1,6 @@
 package HospitalManagamentSystem;
 
 public class Billing {
-    public Billing()
-    {
-
-    }
     public static double[] computePaymentAmount(Patient patient, double amount) {
         double[] payments = new double[2];
         HealthInsurancePlan patientInsurancePlan = patient.getInsurancePlan();

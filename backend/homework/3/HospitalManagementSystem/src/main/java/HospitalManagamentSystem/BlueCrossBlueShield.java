@@ -1,5 +1,6 @@
 package HospitalManagamentSystem;
 
+import LogBack.LogBack;
 
 public class BlueCrossBlueShield implements InsuranceBrand {
     public double computeMonthlyPremium(HealthInsurancePlan insurancePlan, int age, boolean smoking) {
@@ -44,7 +45,8 @@ public class BlueCrossBlueShield implements InsuranceBrand {
         insurancePlan.setOfferedBy(insuranceBrand);
         staffEmployee.setInsurancePlan(insurancePlan);
         String answer = String.format("the answer %s", insurancePlan.computeMonthlyPremium(5000, 56, true));
+        //String answer="the answer".concat(insurancePlan.computeMonthlyPremium(5000, 56, true).toString());
         LogBack.slf4jLogger.debug(answer);
-       
+       // System.out.println(insurancePlan.computeMonthlyPremium(5000, 56, true));
     }
 }
