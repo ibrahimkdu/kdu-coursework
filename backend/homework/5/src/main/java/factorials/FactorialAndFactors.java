@@ -7,7 +7,7 @@ public class FactorialAndFactors {
     public static final Logger slf4jLogger = LoggerFactory.getLogger(FactorialAndFactors.class);
 
     public static void main(String[] args) {
-       //two threads used here one for finding factorial and one for finding factors
+        // two threads used here, one for finding factorial and one for finding factors
         Thread factorialThread = new Thread(new FactorialCalculator(6));
         Thread factorsThread = new Thread(new FactorsCalculator(6));
         factorialThread.start();
@@ -17,6 +17,7 @@ public class FactorialAndFactors {
             factorsThread.join();
         } catch (InterruptedException e) {
             slf4jLogger.error("Main thread interrupted", e);
+            Thread.currentThread().interrupt();
         }
         slf4jLogger.info("Main thread finished.");
     }
@@ -52,13 +53,13 @@ public class FactorialAndFactors {
 
         @Override
         public void run() {
-            try {
-                if (!Thread.interrupted()) {
+            if (!Thread.interrupted()) {
+                try {
                     calculateFactors(number);
+                } catch (InterruptedException e) {
+                    slf4jLogger.error("FactorsCalculator thread interrupted", e);
+                    Thread.currentThread().interrupt();
                 }
-            } catch (InterruptedException e) {
-                slf4jLogger.error("FactorsCalculator thread interrupted", e);
-                Thread.currentThread().interrupt();
             }
         }
 
