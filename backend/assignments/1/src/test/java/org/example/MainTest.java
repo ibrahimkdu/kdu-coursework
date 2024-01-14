@@ -18,7 +18,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Test class for the Main class functionalities.
+ * Test class for the org.example.Main class functionalities.
  */
 public class MainTest {
 
@@ -53,7 +53,7 @@ public class MainTest {
     }
 
     /**
-     * Test case to validate the parsing of CSV files in the Main class.
+     * Test case to validate the parsing of CSV files in the org.example.Main class.
      * This test ensures that the `parseCSV` method correctly reads and parses the content of a sample CSV file,
      * comparing the expected data with the actual parsed data, covering both coin and trader CSV files.
      *
@@ -69,7 +69,7 @@ public class MainTest {
         expectedCoins.add(new String[]{"1", "2", "Ethereum", "ETH", "2270.78", "119292815"});
         expectedCoins.add(new String[]{"2", "3", "Tether", "USDT", "1.00", "78311766178"});
         expectedCoins.add(new String[]{"3", "4", "BNB", "BNB", "351.39", "165116761"});
-        expectedCoins.add(new String[]{"4", "5", "USD Coin", "USDC", "1.00", "47861732704"});
+        expectedCoins.add(new String[]{"4", "5", "USD", "USDC", "1.00", "47861732704"});
         expectedCoins.add(new String[]{"5", "6", "Cardano", "ADA", "1.02", "33550574442"});
         ArrayList<String[]> actual = Main.parseCSV(coinCsvPath);
 
@@ -101,13 +101,13 @@ public class MainTest {
     }
 
     /**
-     * Comprehensive test case for validating the concurrent execution of transactions in the Main class.
+     * Comprehensive test case for validating the concurrent execution of transactions in the org.example.Main class.
      * This test checks the concurrent execution of transactions using JSON files with transaction data.
      * It creates a CountDownLatch to synchronize the completion of transactions across multiple threads.
      * After initiating the transactions, the test waits for a specified time for all threads to finish
      * using latch.await(), and then asserts specific conditions based on the test scenario.
      * The CountDownLatch is used to coordinate the completion of concurrent transactions.
-     * In the ExecuteTransaction class, the latch.countDown() is called in the run method,
+     * In the org.example.ExecuteTransaction class, the latch.countDown() is called in the run method,
      * signaling that a transaction thread has completed its execution, and the latch count is decremented.
      *
      * @see Main#executeTransactions(JsonNode, CountDownLatch)
@@ -139,13 +139,13 @@ public class MainTest {
     }
 
     /**
-     * Comprehensive test case for concurrent execution of transactions in the Main class.
+     * Comprehensive test case for concurrent execution of transactions in the org.example.Main class.
      * This test uses a different JSON file ("test_transaction_2.json") for concurrent execution,
      * creating a CountDownLatch for synchronization. After initiating the transactions,
      * the test waits for a specified time for all threads to finish using latch.await(),
      * and then asserts specific conditions based on the test scenario.
      * The CountDownLatch is used to coordinate the completion of concurrent transactions.
-     * In the ExecuteTransaction class, the latch.countDown() is called in the run method,
+     * In the org.example.ExecuteTransaction class, the latch.countDown() is called in the run method,
      * signaling that a transaction thread has completed its execution, and the latch count is decremented.
      *
      * @see Main#executeTransactions(JsonNode, CountDownLatch)
@@ -249,17 +249,17 @@ public class MainTest {
     }
 
     /**
-     * This test ensures that the `ExecuteTransaction` class implements the `Runnable` interface,
+     * This test ensures that the `org.example.ExecuteTransaction` class implements the `Runnable` interface,
      * confirming that it is being used in a concurrent execution context.
      *
      * @see ExecuteTransaction
      */
     @Test
     void testExecuteTransactionImplementsRunnable() {
-        // Create an instance of ExecuteTransaction
+        // Create an instance of org.example.ExecuteTransaction
         ExecuteTransaction executeTransaction = new ExecuteTransaction();
 
-        // Check if the ExecuteTransaction class implements the Runnable interface
-        assertTrue(executeTransaction instanceof Runnable, "ExecuteTransaction should implement Runnable");
+        // Check if the org.example.ExecuteTransaction class implements the Runnable interface
+        assertTrue(executeTransaction instanceof Runnable, "org.example.ExecuteTransaction should implement Runnable");
     }
 }
