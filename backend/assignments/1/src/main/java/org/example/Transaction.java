@@ -50,9 +50,7 @@ public class Transaction {
          * Introducing delay mimicking complex
          * calculation being performed.
          */
-        for (double i = 0; i < 199999999; i++) {
-            i = i;
-        }
+     
 
         while (transactionHash.length() < 128) {
             int index = (int) (rnd.nextFloat() * SALTCHARS.length());
