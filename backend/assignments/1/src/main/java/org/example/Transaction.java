@@ -12,7 +12,7 @@ import java.util.Random;
 
 enum TransactionType {
     BUY, SELL, UPDATE_PRICE, ADD_VOLUME
-};
+}
 
 public class Transaction {
     TransactionType type;
@@ -41,11 +41,11 @@ public class Transaction {
     public void setData(Map<String, Object> data) {
         this.data = data;
     }
-
+    private static final Random rnd = new Random();
     private String getBlockHash() {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder transactionHash = new StringBuilder();
-        Random rnd = new Random();
+
         /**
          * Introducing delay mimicking complex
          * calculation being performed.
@@ -53,6 +53,7 @@ public class Transaction {
         for (double i = 0; i < 199999999; i++) {
             i = i;
         }
+
         while (transactionHash.length() < 128) {
             int index = (int) (rnd.nextFloat() * SALTCHARS.length());
             transactionHash.append(SALTCHARS.charAt(index));
