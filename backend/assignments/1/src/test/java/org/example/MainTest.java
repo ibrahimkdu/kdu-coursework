@@ -69,7 +69,7 @@ public class MainTest {
         expectedCoins.add(new String[]{"1", "2", "Ethereum", "ETH", "2270.78", "119292815"});
         expectedCoins.add(new String[]{"2", "3", "Tether", "USDT", "1.00", "78311766178"});
         expectedCoins.add(new String[]{"3", "4", "BNB", "BNB", "351.39", "165116761"});
-        expectedCoins.add(new String[]{"4", "5", "USD", "USDC", "1.00", "47861732704"});
+        expectedCoins.add(new String[]{"4", "5", "USD Coin", "USDC", "1.00", "47861732704"});
         expectedCoins.add(new String[]{"5", "6", "Cardano", "ADA", "1.02", "33550574442"});
         ArrayList<String[]> actual = Main.parseCSV(coinCsvPath);
 
