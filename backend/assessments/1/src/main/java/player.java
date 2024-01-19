@@ -32,14 +32,11 @@ public class player {
     }
 
 
-    public int getRuns() {
-        return runs;
-    }
-
-    public void setRuns(int runs) {
-        this.runs = runs;
-    }
-
+ 
+ public int getRuns()
+ {
+     return runs;
+ }
     public double getAverage() {
         return average;
     }
