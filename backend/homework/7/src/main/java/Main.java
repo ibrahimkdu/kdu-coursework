@@ -1,4 +1,4 @@
-import Config.appConfig;
+import config.Appconfig;
 import entitities.Vehicle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +11,7 @@ public class Main {
     private static final Logger customLogger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(appConfig.class)) {
+        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Appconfig.class)) {
             Vehicleservice vehicleNo1 = context.getBean(Vehicleservice.class);
             List<Vehicle> vehicleListNo1 = vehicleNo1.getVehicles();
 

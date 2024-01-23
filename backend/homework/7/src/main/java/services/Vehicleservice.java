@@ -63,7 +63,7 @@ public class Vehicleservice {
             String nameOfCar = names.get(random.nextInt(names.size()));
             speaker.setPrice(speaker.getPrice() * location.getCharges());
             tyre.setPrice(speaker.getPrice() * location.getCharges());
-            Vehicle obj = new Vehicle(tyre, speaker, Math.random() * 10000 + speaker.getPrice() + tyre.getPrice());
+            Vehicle obj = new Vehicle(tyre, speaker, random.nextInt() * 10000 + speaker.getPrice() + tyre.getPrice());
             obj.setName(nameOfCar);
             vehicleList.add(obj);
             inventory.addVehicle(obj);

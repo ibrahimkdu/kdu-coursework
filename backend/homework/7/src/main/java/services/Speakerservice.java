@@ -11,10 +11,10 @@ import java.util.List;
 @Component(value = "speakerService")
 public class Speakerservice {
     public Speaker getSonySpeaker(){
-        return new Speaker(Constants.speakerBrand.SONY,Constants.sonyPrice);
+        return new Speaker(Constants.speakerBrand.SONY,Constants.SONYPRICE);
     }
     public Speaker getBoseSpeaker(){
-        return new Speaker(Constants.speakerBrand.BOSE,Constants.bosePrice);
+        return new Speaker(Constants.speakerBrand.BOSE,Constants.BOSEPRICE);
     }
     public Speaker getSpeaker() {
         List<Speaker> speakers = Arrays.asList(getSonySpeaker(), getBoseSpeaker());
