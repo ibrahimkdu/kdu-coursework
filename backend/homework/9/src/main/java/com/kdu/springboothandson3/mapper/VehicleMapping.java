@@ -5,6 +5,11 @@ import com.kdu.springboothandson3.dto.VehicleResponseDto;
 import com.kdu.springboothandson3.model.Vehicle;
 
 public class VehicleMapping {
+
+    private VehicleMapping()
+    {
+
+    }
     public static VehicleResponseDto vehicleToResponseDto(Vehicle vehicle) {
         return new VehicleResponseDto(vehicle.getName(), vehicle.getPrice());
     }

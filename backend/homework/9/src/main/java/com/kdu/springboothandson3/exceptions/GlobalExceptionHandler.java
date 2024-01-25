@@ -21,7 +21,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(value = {BadRequestCustomException.class})
-    public ResponseEntity<ErrorDto> HandleBadResourceException(BadRequestCustomException ex)
+    public ResponseEntity<ErrorDto> handleBadRequestException(BadRequestCustomException ex)
     {
         logger.info("custom exception called Bad Request Exceptiom");
         ErrorDto error=new ErrorDto(ex.getMessage()+" Custom Bad Request Exception", HttpStatus.INTERNAL_SERVER_ERROR.value());

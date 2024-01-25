@@ -6,8 +6,7 @@ import com.kdu.springboothandson3.mapper.VehicleMapping;
 import com.kdu.springboothandson3.repository.Inventory;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Service
 public class VehicleService implements VehicleServiceInterface {

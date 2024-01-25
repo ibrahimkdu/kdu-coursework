@@ -4,7 +4,7 @@ import com.kdu.springboothandson3.dto.VehicleRequestDto;
 import com.kdu.springboothandson3.dto.VehicleResponseDto;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
 
 @Service
 public interface VehicleServiceInterface {
