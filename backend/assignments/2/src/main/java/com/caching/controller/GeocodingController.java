@@ -19,7 +19,13 @@ public class GeocodingController {
     public GeocodingController(GeocodingService geocodingService) {
         this.geocodingService = geocodingService;
     }
-
+    /**
+     * Handles geocoding requests and caches responses using Spring Cache.
+     *
+     * @param address The address for geocoding.
+     * @return ResponseEntity containing the geocoding response.
+     * @throws ApiNullResponse If the address is blank or null, or if null data is fetched.
+     */
     @GetMapping
     @Cacheable(value = "geocoding", key = "#address", condition = "#address != 'goa'")
     public ResponseEntity<GeocodingResponse> geocoding(@RequestParam("address") String address) {

@@ -18,7 +18,13 @@ public class ReverseGeocodingController {
     public ReverseGeocodingController(ReverseGeocodingService reverseGeocodingService) {
         this.reverseGeocodingService = reverseGeocodingService;
     }
-
+    /**
+     * Handles reverse geocoding requests and caches responses using Spring Cache.
+     *
+     * @param latitude  The latitude for reverse geocoding.
+     * @param longitude The longitude for reverse geocoding.
+     * @return String representing the label obtained from the reverse geocoding response.
+     */
     @GetMapping
     @Cacheable(value = "reverse-geocoding", key = "{#latitude,#longitude}")
     public String reverseGeocoding(@Valid @ModelAttribute @RequestParam("latitude") String latitude,

@@ -15,7 +15,14 @@ import org.springframework.web.client.RestTemplate;
 public class GeocodingServiceImpl implements GeocodingService {
     @Value("${api-key}")
     String apiKey;
-
+    /**
+     * Retrieves geocoding information (latitude and longitude) for the given address using the Position Stack API.
+     *
+     * @param address The address for which geocoding information is requested.
+     * @return GeocodingResponse containing latitude and longitude.
+     * @throws InvalidRequestException If the address is blank.
+     * @throws GeoCodingApiException    If null data is fetched from the API.
+     */
     @Override
     public GeocodingResponse geocoding(String address) {
         validateRequest(address);

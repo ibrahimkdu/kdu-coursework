@@ -16,7 +16,16 @@ public class ReverseGeocodingServiceImpl implements ReverseGeocodingService {
 
     @Value("${api-key}")
     String apiKey;
-
+    /**
+     * Retrieves reverse geocoding information (address label) for the given latitude and longitude using the Position Stack API.
+     *
+     * @param latitude1  The latitude for which reverse geocoding information is requested.
+     * @param longitude1 The longitude for which reverse geocoding information is requested.
+     * @return ReverseGeocodingResponse containing the address label.
+     * @throws InvalidRequestException        If latitude or longitude is blank.
+     * @throws ReverseGeoCodingApiException   If null data is fetched from the API.
+     * @throws InvalidRequestException        If the coordinate format is invalid.
+     */
     @Override
     public ReverseGeocodingResponse reverseGeocoding(String latitude1, String longitude1) {
         log.info("Fetching reverse API from position stack");
