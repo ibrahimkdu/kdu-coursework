@@ -12,6 +12,10 @@ public class StartUpDataAddition implements CommandLineRunner {
 
     @Autowired
     UserRepo userRepo;
+    public StartUpDataAddition(UserRepo userRepo)
+    {
+        this.userRepo=userRepo;
+    }
 
     @Autowired
     PasswordEncoder passwordEncoder;

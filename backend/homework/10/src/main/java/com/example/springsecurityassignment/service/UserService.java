@@ -16,7 +16,7 @@ public class UserService {
         this.userRepo = userRepo;
     }
 
-    public List<UserDto> getAllUsers() throws RuntimeException {
+    public List<UserDto> getAllUsers() throws ResourceNOtFoundException{
         try {
             List<UserDto> users = userRepo.getAllUsers();
             if (users.isEmpty()) {
@@ -28,7 +28,7 @@ public class UserService {
         }
     }
 
-    public UserDto getUserByName(String name) throws RuntimeException {
+    public UserDto getUserByName(String name) throws ResourceNOtFoundException {
         try {
             UserDto user = userRepo.getUserByName(name);
             if (user != null) {
@@ -45,7 +45,7 @@ public class UserService {
             userRepo.addUser(userDto);
             return userDto;
         } catch (Exception e) {
-            throw new RuntimeException("Failed to add the user Retry ");
+            throw new ResourceNOtFoundException("Failed to add the user Retry ");
         }
     }
 }

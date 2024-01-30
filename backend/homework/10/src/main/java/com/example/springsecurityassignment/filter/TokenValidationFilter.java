@@ -22,7 +22,7 @@ import java.nio.charset.StandardCharsets;
 
 public class TokenValidationFilter extends OncePerRequestFilter {
 
-    public final Logger logger = LoggerFactory.getLogger(TokenValidationFilter.class);
+    public final Logger logging = LoggerFactory.getLogger(TokenValidationFilter.class);
     public static final String JWT_KEY = "jxgEQeXHuPq8VdbyYFNkANdudQ53YUn4";
     public static final String JWT_HEADER = "Authorization";
 
@@ -30,7 +30,6 @@ public class TokenValidationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
         String jwt = request.getHeader(JWT_HEADER);
-        System.out.println(jwt);
         if (null != jwt) {
             try {
 
@@ -44,8 +43,6 @@ public class TokenValidationFilter extends OncePerRequestFilter {
 
                 String username = String.valueOf(claims.get("username"));
                 String authorities = (String) claims.get("roles");
-                System.out.println(username);
-                System.out.println(authorities);
                 Authentication auth = new UsernamePasswordAuthenticationToken(username, null,
                         AuthorityUtils.commaSeparatedStringToAuthorityList(authorities));
 

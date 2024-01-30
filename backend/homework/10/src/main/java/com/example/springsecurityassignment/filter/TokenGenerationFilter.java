@@ -26,7 +26,7 @@ public class TokenGenerationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println(authentication);
+
         if (null != authentication) {
             SecretKey key = Keys.hmacShaKeyFor(JWT_KEY.getBytes(StandardCharsets.UTF_8));
             String jwt = Jwts.builder().issuer("kdu").subject("JWT Token")
@@ -36,7 +36,8 @@ public class TokenGenerationFilter extends OncePerRequestFilter {
                     .expiration(new Date((new Date()).getTime() + 30000000))
                     .signWith(key).compact();
             response.setHeader(JWT_HEADER, jwt);
-            System.out.println(jwt);
+
+
         }
 
         filterChain.doFilter(request, response);
