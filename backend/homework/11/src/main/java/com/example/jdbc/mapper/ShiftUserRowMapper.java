@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.UUID;
 
 public class ShiftUserRowMapper implements RowMapper<ShiftUser> {

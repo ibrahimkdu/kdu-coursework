@@ -1,7 +1,7 @@
 package com.example.jdbc.controller;
 
 
-import com.example.jdbc.DTO.UserDTO;
+import com.example.jdbc.dto.UserDTO;
 import com.example.jdbc.model.*;
 import com.example.jdbc.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,20 +15,26 @@ import java.util.UUID;
 
 @RestController
 public class UserController {
-    @Autowired
-    UserService userService;
+    private final UserService userService;
+    private final ShiftTypeService shiftTypeService;
+    private final ShiftUserService shiftUserService;
+    private final ShiftService shiftService;
+    private final TenantService tenantService;
 
     @Autowired
-    ShiftTypeService shiftTypeService;
-
-    @Autowired
-    ShiftUserService shiftUserService;
-
-    @Autowired
-    ShiftService shiftService;
-
-    @Autowired
-    TenantService tenantService;
+    public UserController(
+            UserService userService,
+            ShiftTypeService shiftTypeService,
+            ShiftUserService shiftUserService,
+            ShiftService shiftService,
+            TenantService tenantService
+    ) {
+        this.userService = userService;
+        this.shiftTypeService = shiftTypeService;
+        this.shiftUserService = shiftUserService;
+        this.shiftService = shiftService;
+        this.tenantService = tenantService;
+    }
 
     @GetMapping("/user/all")
     public ResponseEntity<List<User>> getAllUser(){

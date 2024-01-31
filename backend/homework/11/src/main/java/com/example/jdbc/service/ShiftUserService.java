@@ -1,6 +1,6 @@
 package com.example.jdbc.service;
 
-import com.example.jdbc.DAO.ShiftUserDAO;
+import com.example.jdbc.dao.ShiftUserDAO;
 import com.example.jdbc.model.ShiftUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +11,11 @@ import java.util.UUID;
 public class ShiftUserService {
     @Autowired
     ShiftUserDAO shiftUserDAO;
+
+    public ShiftUserService(ShiftUserDAO shiftUserDAO)
+    {
+        this.shiftUserDAO=shiftUserDAO;
+    }
 
     public void addShiftUser(ShiftUser shiftUser){
         shiftUserDAO.saveShiftUser(shiftUser);

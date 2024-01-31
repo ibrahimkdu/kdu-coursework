@@ -1,7 +1,6 @@
 package com.example.jdbc.mapper;
 
 import com.example.jdbc.model.Tenant;
-import com.example.jdbc.model.User;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

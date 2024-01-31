@@ -4,8 +4,6 @@ package com.example.jdbc.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
@@ -27,6 +25,6 @@ public class Shift {
     private String timeZone;
     private UUID tenantId;
 
-    public Shift(UUID id, String name, LocalDate dateStart, LocalDate dateEnd, LocalTime timeStart, LocalTime timeEnd, Instant createdAt, Instant updatedAt, String timeZone) {
-    }
+
+
 }

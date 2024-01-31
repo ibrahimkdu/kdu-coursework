@@ -1,7 +1,7 @@
 package com.example.jdbc.service;
 
 
-import com.example.jdbc.DAO.UserDAO;
+import com.example.jdbc.dao.UserDAO;
 import com.example.jdbc.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,8 +12,13 @@ import java.util.UUID;
 @Service
 public class UserService {
 
-    @Autowired
+
     UserDAO userDAO;
+    @Autowired
+    public UserService(UserDAO userDAO)
+    {
+        this.userDAO=userDAO;
+    }
     public void addUser(User user){
         userDAO.saveUser(user);
     }

@@ -1,23 +1,19 @@
-package com.example.jdbc.DTO;
+package com.example.jdbc.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.Date;
 import java.util.UUID;
 
+
 @Data
 @AllArgsConstructor
-public class ShiftDTO {
+public class ShiftTypeDTO {
     private UUID id;
-    private UUID shiftTypeId;
     private String name;
-    private LocalDate dateStart;
-    private LocalDate dateEnd;
-    private LocalTime timeStart;
-    private LocalTime timeEnd;
+    private String description;
+    private boolean active;
     private Date createdAt;
     private Date updatedAt;
     private String timeZone;

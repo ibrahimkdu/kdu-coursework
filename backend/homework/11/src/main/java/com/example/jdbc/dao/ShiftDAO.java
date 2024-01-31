@@ -1,9 +1,8 @@
-package com.example.jdbc.DAO;
+package com.example.jdbc.dao;
 
 
 import com.example.jdbc.mapper.ShiftRowMapper;
 import com.example.jdbc.model.Shift;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
