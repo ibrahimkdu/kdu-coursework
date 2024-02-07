@@ -1,0 +1,28 @@
+.middle {
+  display: flex;
+}
+.middle .weatherConditions {
+  flex-grow: 1;
+}
+.middle .todayForecast {
+  flex-grow: 1;
+}
+.middle .todayForecast .cloudDeg {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.middle .todayForecast .cloudDeg .temp {
+  margin-left: 10px;
+}
+
+.Forecast {
+  display: flex;
+}
+.Forecast .today {
+  flex-grow: 1;
+}
+
+.silver {
+  color: darkgrey;
+}/*# sourceMappingURL=styles.css.map */

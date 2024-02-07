@@ -1,0 +1,31 @@
+.middle{
+    display: flex;
+
+    .weatherConditions{
+        flex-grow: 1;
+    }
+    .todayForecast{
+        flex-grow: 1;
+
+        .cloudDeg{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .temp{
+                margin-left:10px;
+            }
+        }
+
+    }
+  
+}
+.Forecast{
+    display: flex;
+    .today{
+        flex-grow: 1;
+    }
+}
+.silver
+{
+    color:darkgrey;
+}
