@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <title>Twitter Clone</title>
+  </head>
+  <body>
+    <!-- Main container starts -->
+    <div class="container">
+      <!-- topnavbar for mobileview -->
+      <div class="topnavbar">
+        <img src="profiless.png" alt="" />
+      </div>
+      <!-- floating for mobileview -->
+      <div class="floating-tweet-box-icon">
+        <img src="floating.png" alt="" />
+      </div>
+      <!-- navbar for mobile view -->
+      <div class="navigationmobile">
+        <div class="username">
+          <h1>Nitesh Gupta</h1>
+          <p style="color: grey">@nit_hck</p>
+        </div>
+        <div class="followersinfo">
+          <div class="following">
+            <span>1</span><span color="grey">Following</span>
+          </div>
+          <div class="followers">
+            <span> 0</span><span color="grey">Followers</span>
+          </div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="profile.png" alt="profile" />
+          </div>
+          <div class="navcontent">Profile</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="premium.png" alt="premium" />
+          </div>
+          <div class="navcontent">Premium</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="lists.png" alt="premium" />
+          </div>
+          <div class="navcontent">Lists</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="bookmark.png" alt="premium" />
+          </div>
+          <div class="navcontent">Bookmarks</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="communities.png" alt="communitites" />
+          </div>
+          <div class="navcontent">Communites</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="monetisation.png" alt="communitites" />
+          </div>
+          <div class="navcontent">Monetization</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="settings.png" alt="communitites" />
+          </div>
+          <div class="navcontent">Settings and privacy</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="logout.png" alt="communitites" />
+          </div>
+          <div class="navcontent">Log out</div>
+        </div>
+      </div>
+      <!-- navbar for mobile view ends -->
+      <!-- navbar for desktop view starts -->
+      <div class="navigation-section">
+        <div class="logo" class="desktop"><img src="logo.png" alt="" /></div>
+        <div class="navbarElement" class="desktop">
+          <div class="navIcon">
+            <img src="home.png" alt="home" />
+          </div>
+          <div class="navcontent">Home</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="explore.png" alt="explore" />
+          </div>
+          <div class="navcontent">Explore</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="notifications.png" alt="notifications" />
+          </div>
+          <div class="navcontent">Notifications</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="messages.png" alt="messages" />
+          </div>
+          <div class="navcontent">Messages</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="grok.png" alt="grok" />
+          </div>
+          <div class="navcontent">Grok</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="bookmark.png" alt="bookmark" />
+          </div>
+          <div class="navcontent">Bookmark</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="communities.png" alt="communitites" />
+          </div>
+          <div class="navcontent">Communites</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="premium.png" alt="premium" />
+          </div>
+          <div class="navcontent">Premium</div>
+        </div>
+        <div class="navbarElement">
+          <div class="navIcon">
+            <img src="profile.png" alt="profile" />
+          </div>
+          <div class="navcontent">Profile</div>
+        </div>
+        <div class="navbarElement" class="desktop">
+          <div class="navIcon">
+            <img src="more.png" alt="more" />
+          </div>
+          <div class="navcontent">More</div>
+        </div>
+        <div class="navPost">
+          <button class="navbarPost">Post</button>
+        </div>
+        <div class="navProfile">
+          <div class="leftimg">
+            <img src="profiless.png" alt="profilePicture" />
+          </div>
+          <div class="navmid">
+            <div class="navname">Nitesh Gupta</div>
+            <div class="navuser">@nit_hck</div>
+          </div>
+          <div class="navright">
+            <img src="3dots.png" alt="moreinfo" />
+          </div>
+        </div>
+      </div>
+      <!-- navbar for desktop view ends -->
+      <!-- tweet section starts -->
+      <div class="tweet">
+        <div class="tweetsection">
+          <div class="profileimage">
+            <img src="profiless.png" alt="" />
+          </div>
+          <!-- tweetbox div starts -->
+          <div class="tweet-box">
+            <div class="inputdata">
+              <input
+                type="text"
+                class="post-input"
+                placeholder="What is happening?!"
+              />
+              <button class="draft" disabled>Draft</button>
+            </div>
+            <div class="everyone">
+              <div class="image">
+                <img src="everywhere.png" alt="" />
+              </div>
+              <div class="evinfo">Everyone can reply</div>
+            </div>
+            <div class="postbutton">
+              <div class="tweeticons">
+                <div class="tweetingicons">
+                  <img src="photo.png" alt="photo" />
+                </div>
+                <div class="tweetingicons">
+                  <img src="gif.png" alt="photo" />
+                </div>
+                <div class="tweetingicons">
+                  <img src="doc.png" alt="photo" />
+                </div>
+                <div class="tweetingicons">
+                  <img src="smile.png" alt="photo" />
+                </div>
+                <div class="tweetingicons">
+                  <img src="time.png" alt="photo" />
+                </div>
+                <div class="tweetingicons">
+                  <img src="location.png" alt="photo" />
+                </div>
+              </div>
+              <button class="tweet-btn" disabled>Post</button>
+            </div>
+          </div>
+          <!-- tweetbox div ends -->
+        </div>
+        <!-- posts div starts -->
+        <div class="posts">
+          <div class="newpost">
+            <div class="postinfo">
+              <div class="profileimage">
+                <img src="profiless.png" alt="" />
+              </div>
+              <div class="postdata">
+                <div class="userinfo">
+                  <div class="name">Nitesh Gupta</div>
+                  <div class="time">@nit_hck - 1s</div>
+                  <div class="moreinfo">
+                    <img src="moreinfo.png" alt="" />
+                  </div>
+                </div>
+                <div class="postcontent">
+                  <div class="line1">
+                    coffe in hand,bugs beware.Time to crush some code.<span
+                      class="hashtag"
+                      >#DeveloperLife</span
+                    >
+                  </div>
+                  <div class="hashtag">#Coding</div>
+                </div>
+              </div>
+            </div>
+            <div class="post-icons">
+              <div class="postingicons">
+                <img src="comment.png" alt="" />
+              </div>
+              <div class="postingicons">
+                <img src="repost.png" alt="" />
+              </div>
+              <div class="postingicons">
+                <img src="like.png" alt="" />
+              </div>
+              <div class="postingicons">
+                <img src="insight.png" alt="" />
+              </div>
+              <div class="postingicons">
+                <img src="save.png" alt="" />
+              </div>
+              <div class="postingicons">
+                <img src="export.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- post div ends -->
+      </div>
+    </div>
+    <!-- main container ends -->
+  </body>
+</html>
