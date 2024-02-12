@@ -1,0 +1,11 @@
+{
+  "HostName": "hp-HP-EliteBook-840-G7-Notebook-PC",
+  "OperatingSystem": "linux",
+  "Architecture": "x64",
+  "OSRelease": "6.5.0-15-generic",
+  "Uptime": 205141.11,
+  "NumberOfCPUCores": 8,
+  "TotalMemory": 16524693504,
+  "FreeMemory": 7131951104,
+  "CurrentWorkingDirectory": "/home/hp/Desktop/frontend promise"
+}
