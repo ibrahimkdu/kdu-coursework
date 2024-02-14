@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Web socket Implementation</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- div header start -->
+      <div class="header">
+        <h1>KDU CHAT APP</h1>
+      </div>
+      <!-- div header ends -->
+      <!-- div chat starts -->
+      <div class="chat">
+        <div id="messages"></div>
+      </div>
+      <!-- div chat ends -->
+      <!-- div input message starts -->
+      <div class="inputMessage">
+        <input type="text" id="msginput" placeholder="enter message" />
+        <button id="sendMessage">Send</button>
+      </div>
+      <!-- div input message ends -->
+    </div>
+    <!-- socket.io cdn script -->
+    <script
+      src="https://cdn.socket.io/4.7.4/socket.io.min.js"
+      integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4"
+      crossorigin="anonymous"
+    ></script>
+    <!-- script for the socket programming starts -->
+    <script>
+      const messageInput = document.getElementById("msginput");
+      const sendButton = document.getElementById("sendMessage");
+      const messageOutput = document.getElementById("messages");
+
+      // Initialize socket before using it in event listeners
+      const socket = io("http://localhost:3000");
+
+      function addMessage(from, message) {
+        const elementDiv = document.createElement("div");
+        const elementPara = document.createElement("p");
+        //span for sender or reciever 
+        const borderUser = document.createElement("span");
+        borderUser.textContent = from;
+        //span for the message
+        const userMessage = document.createElement("span");
+        userMessage.classList.add("userMessage");
+        userMessage.textContent = message;
+
+        elementDiv.classList.add("elementdiv1");
+        //DIfferent Styling for sender and reciever
+        borderUser.classList.add(
+          from === "You" ? "border-circle" : "border-square"
+        );
+
+        elementPara.appendChild(borderUser);
+        elementPara.appendChild(userMessage);
+        elementDiv.appendChild(elementPara);
+        messageOutput.appendChild(elementDiv);
+      }
+
+      sendButton.addEventListener("click", () => {
+        const message = messageInput.value;
+        // Send message over web sockets
+        socket.emit("message", message);
+        addMessage("You", message);
+      });
+
+      // Event listener for receiving new messages from the server
+      socket.on("new-message", (message) => {
+        addMessage("User", message);
+      });
+    </script>
+    <!-- script for the socket programming ends -->
+  </body>
+</html>
