@@ -1,0 +1,85 @@
+.header {
+  width: 100%;
+  background-color: #1871c2;
+  color: white;
+  height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3em;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.container .main {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 75%;
+}
+.container .main .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.container .main .content .items {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-around;
+  border: 1px solid black;
+  margin: 0.4em;
+}
+.container .main .content .buy {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-around;
+  border: 1px solid #2f9e44;
+  color: #2f9e44;
+  background-color: #b2f2bb;
+  margin: 0.4em;
+  width: 0.1%;
+}
+.container .main .content .sell {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-around;
+  border: 1px solid #e03131;
+  color: #e03131;
+  background-color: #ffc9c9;
+  margin: 0.4em;
+  width: 0.1%;
+}
+.container .side {
+  display: flex;
+  flex-basis: 25%;
+  flex-direction: column;
+}
+.container .side .historyheading {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+}
+.container .side .history {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 8px;
+}
+.container .side .history .historydata {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  flex-basis: 80%;
+}
+.container .side .history .historydata .historycontent {
+  margin: 1em;
+}
+.container .side .history .historyStatus {
+  display: flex;
+  flex-basis: 20%;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Stock Market Updates</title>
+  </head>
+  <body>
+    <div class="header">KDU Stock Market Dashboard</div>
+    <div class="container">
+      <div class="main">
+        <div class="content">
+          <div class="items">
+            <div class="log">
+              <img src="zomato.png" alt="zomato pic " width="25" height="25" />
+            </div>
+            <div class="content">Zomato</div>
+          </div>
+          <div class="items">
+            <div class="priceHeader" id="priceChange">Price</div>
+            <div id="price">
+              <span>100</span>
+            </div>
+            <div class="arrow">&#8593;</div>
+            <div class="percentage">3.00 %</div>
+          </div>
+          <div class="items">
+            <div class="quantity">
+              <span>Enter quantity</span>
+            </div>
+          </div>
+          <div class="buy">
+            <span>BUY</span>
+          </div>
+          <div class="sell">
+            <span>SELL</span>
+          </div>
+        </div>
+      </div>
+      <div class="side">
+        <div class="historyheading">History</div>
+        <div class="history">
+          <div class="historydata">
+            <div class="historycontent">
+              <div class="historyprice">
+                <span>100</span>
+                <span>Stocks</span>
+              </div>
+              <div class="historyTime">Fri 2 Feb 1996 21:04:05 GMT</div>
+            </div>
+          </div>
+          <div class="historyStatus">
+            <span>BUY</span> 
+        </div>
+        </div>
+      </div>
+    </div>
+    <script
+    src="https://cdn.socket.io/4.7.4/socket.io.min.js"
+    integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+
+
+      // Initialize socket before using it in event listeners
+      const socket = io("http://localhost:3000");
+
+      function addPrice(price,type) {
+        document.getElementById('priceChange').innerText=price;
+        const elemdiv=document.createElement("div");
+        const pricspan=document.createElement("span");
+        const typspan=document.createElement("span");
+        const historytime=moment.time;
+        elemdiv.classList.add("historycontent");
+        elemdiv.append(pricspan);
+        elemdiv.append(pricspan);
+        elemdiv.append(historytime);
+        const elemdiv1=document.createElement("div");
+        elemdiv.classList.add("history");
+elemdiv1.append(elemdiv);
+      };
+
+      // Event listener for receiving new price and type from the server
+      socket.on("price", (data) => {
+        [price,type]=data;
+        addPrice(price,data);
+      });
+    </script>
+  </body>
+</html>
