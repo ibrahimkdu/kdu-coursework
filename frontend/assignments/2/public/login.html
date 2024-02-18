@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file for styling -->
+  <script src="login.js"></script> <!-- Link to your JavaScript file for handling login functionality -->
+</head>
+<body>
+  <div class="loginContainer">
+    <div class="loginHeader">
+      <div class="logintitle">Login to Your App</div>
+      <div class="loginpic">
+        <img src="logo.png" alt="logo">
+      </div>
+    </div>
+    <div class="username">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" >
+    </div>
+    <div class="password">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" >
+    </div>
+    <div class="submit">
+      <button onclick="login()">Login</button>
+    </div>
+  </div>
+</body>
+</html>
