@@ -1,0 +1,33 @@
+.landing {
+  display: flex;
+  flex-direction: column;
+  background-color: goldenrod;
+  height: 100vh;
+}
+.landing .mid {
+  display: flex;
+  flex-direction: row;
+}
+.landing .mid .skills {
+  background-color: lightblue;
+  margin-right: 20px;
+  margin-top: 20px;
+  width: 50%;
+  height: 20vh;
+  padding: 10px;
+}
+.landing .mid .hobbies {
+  background-color: lightgreen;
+  margin-right: 20px;
+  margin-top: 20px;
+  width: 50%;
+  height: 20vh;
+  padding: 10px;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  color: red;
+}/*# sourceMappingURL=landingpage.css.map */
