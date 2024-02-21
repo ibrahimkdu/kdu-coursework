@@ -1,0 +1,35 @@
+.container{
+    margin-left: 20em;
+    .newitem{
+        background-color: #FFE3CA;
+        color:#2547a2;
+        margin-left: 3em;
+        margin-bottom: 2em;
+        height:3vh;
+        width:10%;
+    }
+    .filters{
+        display: flex;
+        flex-direction: column;
+        gap:1vh;
+        margin-left: 3em;
+        .filterscontent{
+            display: flex;
+            background-color: #ee99c2;
+            border-radius: 10px;
+            width:15%;
+          
+            justify-content: center;
+            color:#120b0f;
+            .delete{
+                color:red;
+                margin-left: 1em;
+                width:2%;
+                height:50%;
+                display: flex;
+                justify-content: center;
+            }
+        }
+        border-bottom: 1px solid lightgrey;
+    }
+}

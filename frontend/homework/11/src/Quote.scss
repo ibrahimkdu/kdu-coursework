@@ -1,0 +1,42 @@
+.quote{
+    background-color: #0d369e;
+    margin: 3em;
+    display: flex;
+    flex-direction: column;
+    width:60%;
+    .quotecontent{
+        color:#f6f5f5;
+        display: flex;
+        flex-wrap: wrap;
+        width:70%;
+        margin-left: 5em;
+    }
+    .details{
+        display: flex;
+        justify-content: end;
+        flex-direction: column;
+        align-items: end;
+        .authorname{
+            color:#f6f5f5;
+        }
+        .date{
+           color:lightgrey;
+           margin: 0.25em;
+        }
+    }
+    .tagcontainer{
+        display: flex;
+    margin-left: 3em;
+    .tag{
+        display: flex;
+        background-color: #ee99c2;
+        border-radius: 10px;
+        width:15%;
+      
+        justify-content: center;
+        color:#120b0f;
+        margin: 0.5em;
+        padding: 0.25em;
+    }
+    }
+}
