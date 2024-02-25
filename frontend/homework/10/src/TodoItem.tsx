@@ -9,21 +9,27 @@ interface TodoItemProps {
 }
 
 const TodoItem = ({ id, name, onDeleteItem }: TodoItemProps) => {
+  const handleDeleteClick = () => {
+    onDeleteItem(id);
+  };
+
   return (
     <div className="todo-item">
       <li key={id} className="todo-item-li">
         <div className="itemName">{name}</div>
-        <div className="delete">
+        <button
+          className="delete"
+          onClick={handleDeleteClick}
+        >
           <img
             src={deleteIcon}
             alt="Delete"
             className="delete-icon"
-            onClick={() => onDeleteItem(id)}
           />
-        </div>
+        </button>
       </li>
     </div>
   );
-}
+};
 
 export default TodoItem;

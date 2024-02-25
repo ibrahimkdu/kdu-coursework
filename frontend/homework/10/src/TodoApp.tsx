@@ -15,7 +15,7 @@ function TodoApp() {
     { id: 2, name: 'Task 2' },
     { id: 3, name: 'Task 3' }
   ]);
-  const [newItem, setNewItem] = useState<string>('');
+
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   const handleAddItem = (newItemName: string) => {

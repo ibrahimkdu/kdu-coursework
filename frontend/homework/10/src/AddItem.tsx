@@ -42,3 +42,4 @@ const AddItem = ({ onAddItem }: AddItemProps) => {
 };
 
 export default AddItem;
+
