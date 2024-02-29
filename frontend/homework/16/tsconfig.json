@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["cypress","src","./node_modules/redux-persist/types"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

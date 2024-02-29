@@ -1,7 +1,7 @@
 // AddItem component
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
-import { addItem } from './redux/todoSlice';
+import { useDispatch } from "react-redux";
+import { addItem } from "./redux/todoSlice";
 import "./Additem.scss";
 
 const AddItem = () => {
@@ -20,7 +20,7 @@ const AddItem = () => {
   };
 
   return (
-    <div className="add-item">
+    <div className="add-item " data-testid="add-item">
       <div className="add-header">Add items</div>
       <div className="add-items">
         <div className="add-bar">
@@ -42,4 +42,3 @@ const AddItem = () => {
 };
 
 export default AddItem;
-

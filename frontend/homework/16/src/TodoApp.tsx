@@ -18,9 +18,9 @@ function TodoApp() {
       <Header />
       <div className="content">
         <div className="add-item">
-          <AddItem />
+          <AddItem data-testid="add-item" />
         </div>
-        <div className="todo-items">
+        <div className="todo-items" data-testid="todo-items">
           {filteredItems.length > 0 ? (
             <ul className="todo-list">
               {filteredItems.map((item) => (
