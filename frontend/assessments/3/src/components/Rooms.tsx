@@ -8,7 +8,7 @@ import RoomTypeComponent from "./RoomTypeComponent.tsx";
 export const Rooms: React.FC = () => {
     const dispatch = useDispatch();
     const {rooms} = useSelector((state: RootState) => state.rooms);
-    const [selectedRoomType, setSelectedRoomType] = useState<RoomType>(null);
+    const [selectedRoomType, setSelectedRoomType] = useState<RoomType>();
 
     useEffect(() => {
         dispatch(displayRoom());
