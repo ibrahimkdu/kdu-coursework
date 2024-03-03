@@ -1,21 +1,25 @@
-import React from "react";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { sortedItems } from '../redux/productSlice';
 
-interface PriceSortProps {
-  onSortChange: (sortOrder: string) => void;
-}
+const PriceSort: React.FC = () => {
+  const dispatch = useDispatch();
 
-const PriceSort: React.FC<PriceSortProps> = ({ onSortChange }) => {
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onSortChange(e.target.value);
+    dispatch(sortedItems(e.target.value));
   };
 
   return (
-    <select onChange={handleSelectChange} style={{ marginLeft: "30em" }}>
-      <option value="">Sort by Price</option>
-      <option value="asc">Low to High</option>
-      <option value="desc">High to Low</option>
-    </select>
+    <div>
+      <select onChange={handleSelectChange}>
+        <option value="">Sort by Price</option>
+        <option value="asc">Low to High</option>
+        <option value="desc">High to Low</option>
+      </select>
+    </div>
   );
 };
 
 export default PriceSort;
+
+

@@ -1,25 +1,32 @@
-import React from "react";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../redux/store';
+import { filterItems } from '../redux/productSlice';
 
-interface BrandFilterProps {
-  brands: string[];
-  onSelectBrand: (brand: string) => void;
-}
+const BrandFilter: React.FC = () => {
+  const items = useSelector((state: RootState) => state.product.items);
+  const dispatch = useDispatch();
+  const brandsSet = new Set<string>();
+  items.forEach(item => brandsSet.add(item.category));
+  const brands = Array.from(brandsSet);
 
-const BrandFilter: React.FC<BrandFilterProps> = ({ brands, onSelectBrand }) => {
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onSelectBrand(e.target.value);
+    dispatch(filterItems(e.target.value));
   };
 
   return (
-    <select onChange={handleSelectChange}>
-      <option value="">All Brands</option>
-      {brands.map((brand) => (
-        <option key={brand} value={brand}>
-          {brand}
-        </option>
-      ))}
-    </select>
+    <div>
+      <select onChange={handleSelectChange}>
+        <option value="">All Brands</option>
+        {brands.map((brand, index) => (
+          <option key={index} value={brand}>
+            {brand}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
 
 export default BrandFilter;
+
