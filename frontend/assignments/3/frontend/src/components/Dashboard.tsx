@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
 import { Link } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
 import { fetchStocks } from "../thunk/fetchStocks";
 import { addToWatchlist, removeFromWatchlist } from "../redux/stockSlice";
 import { Stock } from "../types";
 import Navbar from "./Navbar";
+import NavbarStock from "./NavbarStock";
 
 const Dashboard: React.FC = () => {
   const dispatch = useDispatch();
@@ -123,6 +123,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
+      <NavbarStock />
       <Navbar />
       <div style={mainContainer}>
         <div style={blockTitle}>

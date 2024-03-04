@@ -1,12 +1,17 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const navbarStyle: React.CSSProperties = {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     alignItems: "center",
     padding: "1rem",
     borderBottom: "1px solid black",
+  };
+
+  const linkContainerStyle: React.CSSProperties = {
+    marginLeft: "1rem",
   };
 
   const linkStyle: React.CSSProperties = {
@@ -18,10 +23,9 @@ const Navbar: React.FC = () => {
 
   return (
     <div style={navbarStyle}>
-      <h2>Stock App</h2>
-      <div>
+      <div style={linkContainerStyle}>
         <Link to="/" style={linkStyle}>Explore</Link>
-        <Link to="/watchlistPage" style={linkStyle}>Watchlist</Link>
+        <Link to="/watchlistPage" style={linkStyle}>My Watchlist</Link>
       </div>
     </div>
   );

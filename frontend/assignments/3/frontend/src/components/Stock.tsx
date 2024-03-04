@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import io from "socket.io-client";
+import NavbarStock from './NavbarStock';
 
 function Stock() {
   const watchlist = useSelector((state: RootState) => state.stocks.stocks);
@@ -11,33 +12,31 @@ function Stock() {
   const [history, setHistory] = useState<{ price: number, timestamp: string, action: string, quantity: number }[]>([]);
 
   useEffect(() => {
-    const socket = io("http://localhost:3000"); // Connect to Socket.io server
+    const socket = io("http://localhost:3000"); 
 
     socket.on("new-price", (newPrice: number) => {
-      setPrevPrice(price); // Store previous price
-      setPrice(newPrice); // Update current price
+      setPrevPrice(price); 
+      setPrice(newPrice); 
     });
 
     return () => {
-      socket.disconnect(); // Clean up on component unmount
+      socket.disconnect(); 
     };
   }, [price]);
 
   const handleBuy = () => {
     const newTransaction = { price, timestamp: new Date().toLocaleString(), action: 'BUY', quantity };
     setHistory(prevHistory => [...prevHistory, newTransaction]);
- 
   };
 
   const handleSell = () => {
     const newTransaction = { price, timestamp: new Date().toLocaleString(), action: 'SELL', quantity };
     setHistory(prevHistory => [...prevHistory, newTransaction]);
-
   };
 
   return (
     <div>
-      <div className="header" style={{ width: '100%', backgroundColor: '#1871c2', color: 'white', height: '6vh', display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '3em' }}>KDU Stock Market Dashboard</div>
+    <NavbarStock />
       <div className="container" style={{ display: 'flex', flexDirection: 'row' }}>
         <div className="main" style={{ display: 'flex', flexDirection: 'column', flexBasis: '75%' }}>
           <div className="content" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -76,11 +75,17 @@ function Stock() {
           <div className="historyheading" style={{ width: '100%', display: 'flex', justifyContent: 'left' }}>History</div>
           <div className="history" style={{ display: 'flex', flexDirection: 'column', border: '1px solid black', borderRadius: '10px', padding: '8px', overflowY: 'auto' }}>
             {history.map((item, index) => (
-              <div key={index} className="historyItem">
-                <span>{item.timestamp}</span>
-                <span>{item.action}</span>
-                <span>Price: {item.price}</span>
-                <span>Quantity: {item.quantity}</span>
+              <div key={index} className="historydata" style={{ display: 'flex', flexDirection: 'row', border: '1px solid black', borderRadius: '10px', padding: '8px', marginBottom: '5px' }}>
+                <div className="historycontent" style={{ display: 'flex', flexDirection: 'column', gap: '1vh', flexBasis: '80%' }}>
+                  <div className="historyprice">
+                    <span>{item.price}</span>
+                    <span>Stocks</span>
+                  </div>
+                  <div className="historyTime">{item.timestamp}</div>
+                </div>
+                <div className="historyStatus" style={{ display: 'flex', flexBasis: '20%', justifyContent: 'center', alignItems: 'center' }}>
+                  <span>{item.action}</span>
+                </div>
               </div>
             ))}
           </div>
