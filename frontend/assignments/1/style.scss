@@ -1,0 +1,373 @@
+body {
+  background-color: #000000; //dark mode
+  color: white; //texxt color is white
+}
+.hashtag {
+  color: #1c94e6; //hashtag color
+}
+.time {
+  color: grey;
+}
+
+.container {
+  //css for main container
+  display: flex;
+  .topnavbar {
+    //css for topnavbar for mobile view
+    display: none;
+    width: 10%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .floating-tweet-box-icon {
+    //css for floating button button for mobile view
+    display: none;
+    width: 10%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .navigationmobile {
+    //css for navigation mobile
+    display: none;
+  }
+  .navigation-section {
+    //css for navigation section
+    margin-left: 20em;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+
+    .navbarElement {
+      display: flex;
+
+      .navIcon {
+      }
+      .navcontent {
+        margin-left: 5em;
+      }
+    }
+    .navPost {
+      //css for navbar
+      .navbarPost {
+        padding: 15px 80px;
+        border-radius: 40%;
+        background-color: #1d9bf0;
+      }
+    }
+    .navProfile {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      .leftimg {
+        position: absolute;
+        left: 20em;
+      }
+      .navmid {
+        position: absolute;
+        left: 25em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5vh;
+        .navname {
+          font-size: large;
+        }
+        .navuser {
+          color: grey;
+        }
+      }
+      .navright {
+        position: absolute;
+        left: 40em;
+      }
+    }
+  }
+  .tweet {
+    //css for tweet
+    display: flex;
+    flex-direction: column;
+    margin-left: 8em;
+    .tweetsection {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      .tweet-box {
+        display: flex;
+        flex-direction: column;
+        .everyone {
+          display: none;
+        }
+        .inputdata {
+          outline: none;
+          margin-left: 0.4em;
+          padding-right: 1em;
+          padding-bottom: 1em;
+
+          .post-input {
+            border: 0;
+            background-color: #000000;
+            color: white;
+          }
+          .tweet-btn {
+            justify-content: center;
+            margin-left: 6em;
+            padding: 1.5em;
+            border-radius: 50%;
+            background-color: #1d9bf0;
+          }
+          .draft {
+            display: none;
+          }
+          .postmobile {
+            display: none;
+          }
+        }
+        .postbutton {
+          display: flex;
+          .tweeticons {
+            display: flex;
+            justify-content: space-around;
+            .tweetingicons {
+              margin: 0.5em;
+            }
+          }
+          .tweet-btn {
+            justify-content: center;
+            margin-left: 6em;
+            padding: 1.5em;
+            border-radius: 50%;
+            background-color: #1d9bf0;
+          }
+        }
+      }
+    }
+    .posts {
+      //css for posts
+      display: flex;
+      flex-direction: column;
+      .newpost {
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.5em;
+        margin-left: 2.3em;
+        .postinfo {
+          display: flex;
+          .postdata {
+            display: flex;
+            flex-direction: column;
+            .userinfo {
+              display: flex;
+              .name {
+                margin-left: 1em;
+              }
+              .time {
+                margin-left: 0.2em;
+              }
+              .moreinfo {
+                margin-left: 14em;
+              }
+            }
+            .postcontent {
+              display: flex;
+              flex-direction: column;
+              margin-left: 1em;
+              margin-top: 0.2em;
+            }
+          }
+        }
+        .post-icons {
+          display: flex;
+          margin-left: 2.8em;
+          .postingicons {
+            display: flex;
+            justify-content: space-around;
+            margin: 0.5em;
+          }
+        }
+      }
+    }
+  }
+}
+.like-post,
+.unlike-post {
+  border: none;
+  background: none;
+  padding: 0.2em;
+  margin: 0.2em;
+  cursor: pointer;
+}
+//media query for mobile view starts
+@media (max-width: 550px) {
+  .container .topnavbar {
+    display: block; /* Show for mobile view */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+  }
+
+  .container .navigation-section {
+    display: none;
+  }
+  .container .floating-tweet-box-icon {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 1em;
+  }
+  .container .navigation-section {
+    display: none;
+  }
+  .container .navigationmobile {
+    display: none;
+    position: absolute;
+    top: 2.5em;
+    left: 0px;
+    flex-direction: column;
+    background-color: black;
+    .followersinfo {
+      display: flex;
+      flex-direction: row;
+      .followers {
+        margin-left: 1em;
+        margin-bottom: 0.5em;
+      }
+    }
+    .navbarElement {
+      display: flex;
+      .navcontent {
+        margin-left: 5em;
+        margin-top: 0.3em;
+      }
+    }
+  }
+  .container .tweet {
+    display: flex;
+    flex-direction: column;
+    position: static;
+    margin-top: 2em;
+    margin-left: 0em;
+    .tweetsection {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      .tweet-box {
+        // display: flex;
+        flex-direction: column;
+        display: none;
+
+        .everyone {
+          display: flex;
+          flex-direction: row;
+          .evinfo {
+            margin-top: 1.2em;
+            color: #1c94e6;
+          }
+        }
+        .inputdata {
+          outline: none;
+          margin-left: 0em;
+          padding-right: 0.2em;
+          padding-bottom: 0.2em;
+          display: flex;
+
+          .post-input {
+            border: 0;
+            background-color: #000000;
+            color: white;
+          }
+          .tweet-btn {
+            justify-content: center;
+            margin-left: 1em;
+            padding: 0.1em;
+            border-radius: 50%;
+            background-color: #1d9bf0;
+          }
+          .draft {
+            display: block;
+            justify-content: center;
+            margin-left: 6em;
+            padding: 0.1em;
+            border-radius: 30%;
+            background-color: #1d9bf0;
+            position: absolute;
+            top: 3em;
+            right: 4em;
+          }
+          .postmobile {
+            display: block;
+          }
+        }
+        .postbutton {
+          display: flex;
+          .tweeticons {
+            display: flex;
+            justify-content: space-around;
+            .tweetingicons {
+              margin: 0.5em;
+            }
+          }
+          .tweet-btn {
+            justify-content: center;
+            margin-left: 6em;
+            padding: 0.1em;
+            border-radius: 30%;
+            background-color: #1d9bf0;
+            position: absolute;
+            top: 3em;
+            right: 1em;
+          }
+        }
+      }
+    }
+    .posts {
+      display: flex;
+      flex-direction: column;
+      font-size: small;
+      .newpost {
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.5em;
+        margin-left: 0.5;
+        .postinfo {
+          display: flex;
+          .postdata {
+            display: flex;
+            flex-direction: column;
+            .userinfo {
+              display: flex;
+              .name {
+                margin-left: 1em;
+              }
+              .time {
+                margin-left: 0.2em;
+              }
+              .moreinfo {
+                margin-left: 14em;
+              }
+            }
+            .postcontent {
+              display: flex;
+              flex-direction: column;
+              margin-left: 1em;
+              margin-top: 0.2em;
+            }
+          }
+        }
+        .post-icons {
+          display: flex;
+          margin-left: 2.8em;
+          .postingicons {
+            display: flex;
+            justify-content: space-around;
+            margin: 0.5em;
+          }
+        }
+      }
+    }
+  }
+}
